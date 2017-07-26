@@ -22,7 +22,7 @@ var S = {
     document.body.classList.add('body--ready');
 
   
-      S.UI.simulate('Shape|Shifter|Type|to start|#rectangle|#countdown 3||');
+      S.UI.simulate('帅不帅|宝贝儿|嗯？|to start|#rectangle|#countdown 10||');
     
 
     S.Drawing.loop(function () {
