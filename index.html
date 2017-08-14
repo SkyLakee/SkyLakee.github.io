@@ -12,8 +12,9 @@
         background-size: cover;
         background-position: center center;
 }
-.index-main{
+.sign-flow-simple,.title{
 	position: absolute;
+	z-index: 2
 }
 
 		
@@ -24,7 +25,101 @@
 </head>
 <body>
   <!--最上方字体-->
+  <div class="title">
+    <h1 class="">
+      杂七杂八
+    </h1>
+    <h2 class="subtitle">
+      fight
+    </h2>
+  </div>
+
   
+  <div class="desk-front sign-flow clearfix sign-flow-simple">
+
+  	<!---->
+    <div class="index-tab-navs">
+        <a href="#signup" class="active">
+          注册
+        </a>
+        <a href="#signin">
+          登录
+        </a>
+        <span class="navs-slider-bar">
+        </span>
+    </div>
+
+
+
+    <!--登录-->
+    <div class="" id="signup">
+      <form method="POST" novalidate="novalidate" action="">
+
+        <div class="">
+          <input name="account" aria-label="手机号或邮箱" placeholder="手机号或邮箱" type="text">
+        </div>
+
+        <div class="">
+          <input name="password" aria-label="密码" placeholder="密码" required="" type="password">
+          <button type="button" class="send-code-button">
+            获取验证码
+          </button>
+        </div>
+
+        <div class="">
+          <button class="sign-button submit" type="submit">
+            登录
+          </button>
+        </div>
+
+        <div class="">
+          <button type="button" class="">
+            手机验证码登录
+          </button>
+          <a class="unable-login" href="#">
+            无法登录？
+          </a>
+        </div>
+      </form>
+    </div>
+
+
+
+    <!--注册-->
+    <div class="" id="signup">
+      <form class="zu-side-login-box" action="" id="sign-form-1" autocomplete="off" method="POST" novalidate="novalidate">
+
+          <div class="">
+            <input required="" name="fullname" aria-label="姓名" placeholder="姓名" value=""
+            type="text">
+          </div>
+
+          <div class="email input-wrapper">
+            <input required="" class="account" name="phone_num" aria-label="手机号" placeholder="手机号"
+            value="" type="text">
+          </div>
+
+          <div class="input-wrapper">
+            <input required="" name="password" aria-label="密码" placeholder="密码（不少于 6 位）"
+            autocomplete="off" type="password">
+          </div>
+
+          <div class="Captcha input-wrapper" data-type="cn" data-za-module="Captcha">
+            <div class="Captcha-imageConatiner">
+              <img class="Captcha-image" alt="验证码">
+            </div>
+          </div>
+
+          <div class="button-wrapper command">
+            <button class="sign-button submit" type="submit">
+              注册
+            </button>
+          </div>
+      </form>
+    </div>
+
+
+   </div>
 <div class="particles">
 	<canvas id="Mycanvas"></canvas>
 </div>
