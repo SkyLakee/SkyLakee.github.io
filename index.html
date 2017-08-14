@@ -2,21 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Canvas知乎登录页面背景动画 - 魔客吧</title>
+<title>欢迎来到杂七杂八</title>
+<link rel="icon" href="title.jpg" sizes="16*16">
 <style type="text/css">
-	body{
-		text-align: center;
-		background: #F7FAFC;
-		overflow: hidden;
-		background: #fff;
-		}
+.particles{
+	z-index: -1;position: absolute;
+	background: url(starsky.jpg) no-repeat;
+        background-size: cover;
+        background-position: center center;
+}
+.index-main{
+	position: absolute;
+}
+
+		
+.active{
+
+}
 </style>
 </head>
 <body>
-<canvas id="Mycanvas"></canvas>
+  <!--最上方字体-->
+  
+<div class="particles">
+	<canvas id="Mycanvas"></canvas>
+</div>
+
 <script>
 	//定义画布宽高和生成点的个数
-	var WIDTH = window.innerWidth, HEIGHT = window.innerHeight, POINT = 35;
+	var WIDTH = window.outerWidth, HEIGHT = window.outerHeight, POINT = 35;
 	
 	var canvas = document.getElementById('Mycanvas');
 	canvas.width = WIDTH,
@@ -43,28 +57,30 @@
 		this.moveX = moveX,
 		this.moveY = moveY;
 	}
-	//生成max和min之间的随机数
-	function num (max, _min) {
+	//生成max和min之间的随机数,传入实参为长度和宽度
+	function num (max, min) {
+		//如果min有值，则取其值，否则min为零
 		var min = arguments[1] || 0;
 		return Math.floor(Math.random()*(max-min+1)+min);
 	}
 	// 绘制原点
 	function drawCricle (cxt, x, y, r, moveX, moveY) {
-		var circle = new Circle(x, y, r, moveX, moveY)
-		cxt.beginPath()
-		cxt.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI)
-		cxt.closePath()
+		var circle = new Circle(x, y, r, moveX, moveY);
+		cxt.beginPath();
+		cxt.fillStyle = '#7CCD7C';
+		cxt.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI);
+		cxt.closePath();
 		cxt.fill();
 		return circle;
 	}
 	//绘制线条
 	function drawLine (cxt, x, y, _x, _y, o) {
 		var line = new Line(x, y, _x, _y, o)
-		cxt.beginPath()
-		cxt.strokeStyle = 'rgba(0,0,0,'+ o +')'
-		cxt.moveTo(line.beginX, line.beginY)
-		cxt.lineTo(line.closeX, line.closeY)
-		cxt.closePath()
+		cxt.beginPath();
+		cxt.strokeStyle = 'rgba(255,255,255,'+ o +')';
+		cxt.moveTo(line.beginX, line.beginY);
+		cxt.lineTo(line.closeX, line.closeY);
+		cxt.closePath();
 		cxt.stroke();
 
 	}
@@ -72,7 +88,8 @@
 	function init () {
 		circleArr = [];
 		for (var i = 0; i < POINT; i++) {
-			circleArr.push(drawCricle(context, num(WIDTH), num(HEIGHT), num(15, 2), num(10, -10)/40, num(10, -10)/40));
+			//context对象,点的X轴,点的Y轴,点的半径，移动的XY距离（使用num设置随机数）
+			circleArr.push(drawCricle(context, num(WIDTH), num(HEIGHT), num(8, 2), num(10, -10)/40, num(10, -10)/40));
 		}
 		draw();
 	}
